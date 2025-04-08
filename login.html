@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CozyCore Yoga</title>
+        <link rel="icon" href="./images/logo/logo2.png" type="image/png">
+        <link rel="stylesheet" href="./css/index-style.css">
+        <link rel="stylesheet" href="./fonts/font.css">
+    </head>
+    <body>
+        <!-- header -->
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="./images/logo/mainlogo.png" alt="Logo Image">
+                </div>
+                <div class="hamburger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="#About-Us">About Us</a></li>
+                    <li><a href="#Contact-Us">Contact Us</a></li>
+                    <li><a href="./Healthform_html.html">Health Form</a></li>
+                    <li><a href="" ><img class="noti-button" src="icon/notification.png" width="30px"></a></li>
+                    <li><a href="./login.html"><button class="login-button">Login</button></a></li>
+                    
+                </ul>
+            </nav>
+            <script src="nav.js"></script>
+        </header>
+
+        <div class="login-container">
+            <div class="image-section">
+              <img src="./images/login/log-in.jpg" alt="">
+            </div>
+            <div class="login-section">
+              <div class="login-header">
+                <h3>LOG IN</h3> <br>
+              </div>
+              <form id="login-form">
+                <div class="form-group">
+                  <label for="username">User name</label> <br>
+                  <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" id="password" name="password" required>
+                </div>
+                <div class="forgot-password">
+                  <a href="./forgot-pass.html">Forgot your password?</a>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+              </form>
+              <div class="create-account">
+                <p>Don't have an Account? &nbsp;<a href="./signup.html" style="font-style: italic;">Create an Account.</a></p>
+              </div>
+            </div>
+          </div>
+          <!-- <script>
+                document.getElementById("login-form").addEventListener("submit", function (e) {
+                e.preventDefault();
+                // Add your login logic here
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+                console.log("Login attempted with:", { username, password });
+                });
+          </script> -->
+           <!-- footer -->
+    <footer>
+        <div class="footer-container items-center">
+            <p class="logo">CozyCore</p>
+            <p class="copyright">&copy; 2025 , CozyCore Yoga</p>
+            <div class="scroll-top">
+                <span>
+                    <a href="./index.html">
+                        <img src="./images/icons/up-icon.png" alt="icon">
+                    </a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script>
+      document.getElementById("login-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+    
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+    
+        fetch("http://localhost:5000/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, password }),
+        })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            alert("Login successful!");
+            // Redirect or show dashboard here
+            window.location.href = "./index.html";
+          } else {
+            alert("Login failed: " + data.message);
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          alert("An error occurred during login.");
+        });
+      });
+    </script>
+    
+    </body>
+</html>

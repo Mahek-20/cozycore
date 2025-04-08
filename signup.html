@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CozyCore Yoga</title>
+        <link rel="icon" href="./images/logo/logo2.png" type="image/png">
+        <link rel="stylesheet" href="./css/index-style.css">
+        <link rel="stylesheet" href="./fonts/font.css">
+        <style>
+            
+            
+        </style>
+    </head>
+    <body>
+        <!-- header -->
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="./images/logo/mainlogo.png" alt="Logo Image">
+                </div>
+                <div class="hamburger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="#About-Us">About Us</a></li>
+                    <li><a href="#Contact-Us">Contact Us</a></li>
+                    <li><a href="./Healthform_html.html">Health Form</a></li>
+                    <li><a href="" ><img class="noti-button" src="icon/notification.png" width="30px"></a></li>
+                    <li><a href="./login.html"><button class="login-button">Login</button></a></li>
+                    
+                </ul>
+            </nav>
+            <script src="nav.js"></script>
+        </header>
+        <div class="signup-container">
+            <div class="signup-section">
+              <div class="signup-header">
+                <h3>SIGN UP</h3> <br>
+              </div>
+              <form id="signup-form">
+                <div class="form-group">        
+                  <label for="Firstname">First name*</label> <br>
+                  <input type="text" id="Firstname" name="Firstname" required>
+                </div>
+                <div class="form-group">        
+                    <label for="Lastname">Last name*</label> <br>
+                    <input type="text" id="Lastname" name="Lastname" required>
+                </div>
+                <div class="form-group">        
+                    <label for="email">E-mail*</label> <br>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">        
+                    <label for="number">Contact Number*</label> <br>
+                    <input type="number" id="number" name="number" required>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password*</label>
+                  <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Confirm Password*</label>
+                    <input type="password" id="password" name="password" required>
+                  </div>
+                <button type="submit" class="submit-btn">Submit</button>
+              </form>
+              <div class="create-account">
+                <p>Already have an Account? &nbsp;<a href="./login.html" style="font-style: italic;">LOG IN.</a></p>
+              </div>
+            </div>
+            <div class="image-section">
+                <img src="./images/login/login.jpg" alt="">
+            </div>
+          </div>
+          <script>
+            document.getElementById("signup-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            // Add your signup logic here
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            console.log("signup attempted with:", { username, password });
+            });
+          </script>
+           <!-- footer -->
+    <footer>
+        <div class="footer-container items-center">
+            <p class="logo">CozyCore</p>
+            <p class="copyright">&copy; 2025 , CozyCore Yoga</p>
+            <div class="scroll-top">
+                <span>
+                    <a href="./index.html">
+                        <img src="./images/icons/up-icon.png" alt="icon">
+                    </a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Server connections -->
+    <script>
+        document.getElementById("signup-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+      
+            // Get form data
+            const Firstname = document.getElementById("Firstname").value;
+            const Lastname = document.getElementById("Lastname").value;
+            const email = document.getElementById("email").value;
+            const number = document.getElementById("number").value;
+            const password = document.getElementById("password").value;
+      
+            // Create an object to send to the backend
+            const formData = {
+                Firstname,
+                Lastname,
+                email,
+                number,
+                password,
+            };
+      
+            // Send form data to backend using fetch
+            fetch('http://localhost:5000/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Sign-up successful!');
+                    // Redirect to login page or show success message
+                } else {
+                    alert('Sign-up failed: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while signing up.');
+            });
+        });
+      </script>
+      
+
+
+
+    </body>
+</html>

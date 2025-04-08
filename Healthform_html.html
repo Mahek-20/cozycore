@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Form</title>
+    <link rel="icon" href="./images/logo/logo2.png" type="image/png">
+    <link rel="stylesheet" href="./css/index-style.css">
+    <link rel="stylesheet" href="./fonts/font.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="./images/logo/mainlogo.png" alt="Logo Image">
+            </div>
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="#About-Us">About Us</a></li>
+                <li><a href="#Contact-Us">Contact Us</a></li>
+                <li><a href="./Healthform_html.html">Health Form</a></li>
+                <li><a href="" ><img class="noti-button" src="icon/notification.png" width="30px"></a></li>
+                <li><a href="./login.html"><button class="login-button">Login</button></a></li>
+                
+            </ul>
+        </nav>
+        <script src="nav.js"></script>
+    </header>
+        <section>
+            <div class="container ">
+                <div class="row justify-end">
+                    <div class="col-10 about">
+                        <h1 id="About-Us">Client Intake Form</h1>
+                        <div class="healthform-container">
+                            <form id="healthForm" method="POST" action="/submit-healthform">
+                                <!-- Personal Information -->
+                                <div class="personal-info">
+                                    <h3 align="center">-: Personal Information :-</h3> <br>
+                                    <label for="name">Your name : </label><br>
+                                    <input type="text" id="name" name="name" required><br><br>
+                                    <label for="dob">Date Of Birth :</label><br><br>
+                                    <input type="date" name="dob" id="dob"><br><br>
+                                    <label for="age">Age : </label><br>
+                                    <input type="number" id="age" name="age" required><br><br>
+                                    <label for="height">Height : </label><br>
+                                    <input type="number" id="height" name="height" placeholder="in cm"><br><br>
+                                    <label for="weight">Weight : </label><br>
+                                    <input type="number" id="weight" name="weight" placeholder="in kg"><br><br><br>
+                                    &nbsp;&nbsp;
+                                </div>
+                                <!-- General Information -->
+                                <div class="general-info">
+                                    <h3 align="center">-: General Information :-</h3><br>
+                                    <h4>Lifestyle & Fitness</h4>
+                                    &nbsp;&nbsp;
+                                    <input type="radio" id="inactive" name="fitness" value="Inactive">
+                                                    <label for="inactive">Inactive</label><br>
+                                    &nbsp;&nbsp;
+                                    <input type="radio" id="Somewhat inactive" name="fitness" value="Somewhat Inactive">
+                                                    <label for="Somewhat inactive">Somewhat Inactive</label><br>
+                                    &nbsp;&nbsp;
+                                    <input type="radio" id="Average" name="fitness" value="Average">
+                                                    <label for="Average">Average</label><br>
+                                    &nbsp;&nbsp;
+                                    <input type="radio" id="Somewhat Active" name="fitness" value="Somewhat Active">
+                                                    <label for="Somewhat Active">Somewhat Active</label><br>
+                                    &nbsp;&nbsp;
+                                    <input type="radio" id="Extremely Active" name="fitness" value="Extremely Active">
+                                                    <label for="Extremely Active">Extremely Active</label><br><br>
+                                        <div class="scale">
+                                            <h4>On a scale of 1-10 (1 is lowest & 10 is highest),<br> Rate your level of stress</h4>
+                                            <input type="range" min="1" max="10" value="50" class="slider" id="myRange">
+                                            <h5>Value: <span id="demo"></span></h5> <br><br>
+                                        </div>
+                                        <script>
+                                            var slider = document.getElementById("myRange");
+                                            var output = document.getElementById("demo");
+                                            output.innerHTML = slider.value;
+                                            
+                                            slider.oninput = function() {
+                                              output.innerHTML = this.value;
+                                            }
+                                        </script>
+                                        <label for="health"><strong>Briefly describe your health pattern (i.e. sleep cycle, food pattern, rest, self-care etc...)</strong></label> <br>
+                                        <textarea name="health" id="health"></textarea><br><br><br>
+                                </div>
+                                <!-- yoga history -->
+                                <div class="yoga-history">
+                                    <h3 align="center">-: Yoga Experience/ Goals/ Interests :-</h3><br>
+                                    
+                                    <!-- ever practiced yoga before? -->
+                                    <h4>Have you practiced yoga before?</h4><br>
+                                    &nbsp;&nbsp;
+                                    <input type="radio" id="yes-practice" name="practice" value="yes">
+                                    <label for="yes">Yes</label>
+                                    &nbsp;&nbsp;
+                                    <input type="radio" id="no-practice" name="practice" value="no">
+                                    <label for="no">No</label><br><br>
+
+                                    <!-- How often do you practice yoga? -->
+                                    <h4>How often do you practice yoga?</h4><br>
+                                    &nbsp;&nbsp;
+                                    <input type="radio" id="daily-practice" name="often-practice" value="daily">
+                                    <label for="Daily">Daily</label>
+                                    &nbsp;&nbsp;
+                                    <input type="radio" id="Weekly-practice" name="often-practice" value="weekly">
+                                    <label for="no">Weekly</label>
+                                    &nbsp;&nbsp;
+                                    <input type="radio" id="monthly-practice" name="often-practice" value="monthly">
+                                    <label for="no">Monthly</label>
+                                    &nbsp;&nbsp;
+                                    <input type="radio" id="na-practice" name="often-practice" value="na">
+                                    <label for="no">N/A</label><br><br>
+
+                                    <!-- Style of yoga practiced most frequently -->
+                                    <h4>Style of yoga practiced most frequently:</h4><br>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="hatha" name="hatha" value="hatha">
+                                    <label for="hatha">Hatha</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="ashtanga" name="ashtanga" value="ashtanga">
+                                    <label for="ashtanga">Ashtanga</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="flow" name="flow" value="flow">
+                                    <label for="flow">Vinyasa/Flow</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="iyengar" name="iyengar" value="iyengar">
+                                    <label for="flow">Iyengar</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="power" name="power" value="power">
+                                    <label for="flow">Power</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="anusara" name="anusara" value="anusara">
+                                    <label for="anusara">Anusara</label><br><br>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="hot" name="hot" value="hot">
+                                    <label for="hot">Bikram/Hot</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="kundalini" name="kundalini" value="kundalini">
+                                    <label for="kundalini">Kundalini</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="gentle" name="gentle" value="gentle">
+                                    <label for="gentle">Gentle</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="restorative" name="restorative" value="restorative">
+                                    <label for="restorative">Restorative</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="yin" name="yin" value="yin">
+                                    <label for="yin">Yin</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="other" name="other" value="other">
+                                    <label for="other">Other</label><br><br>
+
+                                    <!-- What are your goal -->
+                                    <h4 align="center">-: Goals :-</h4><br>
+                                    <h4>What are your goal/expectations for your yoga practice? What benefits are you looking for? </h4><br>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="strength" name="strength" value="strength">
+                                    <label for="strength">Strenth Training</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="Flexibility" name="Flexibility" value="Flexibility">
+                                    <label for="Flexibility">Flexibility</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="Balance" name="Balance" value="Balance">
+                                    <label for="Balance">Balance</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="Stress Relief" name="Stress Relief" value="Stress Relief">
+                                    <label for="Stress Relief">Stress Relief</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="health concern" name="health concern" value="health concern">
+                                    <label for="">Address a health concern</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="therapy" name="therapy" value="therapy">
+                                    <label for="therapy">Alternative therapy</label><br><br>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="fitness" name="fitness" value="fitness">
+                                    <label for="fitness">Improve Fitness</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="Weight Management" name="Weight Management" value="Weight Management">
+                                    <label for="Weight Management">Weight Management</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="well-being" name="well-being" value="well-being">
+                                    <label for="well-being">Increase well-being</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="injury" name="injury" value="injury">
+                                    <label for="injury">Injury Rehabilitation</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="positive reinforcement" name="positive reinforcement" value="positive reinforcement">
+                                    <label for="positive reinforcement">Positive Reinforcement</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="other" name="other" value="other">
+                                    <label for="other">Other</label><br><br>
+
+                                    <!-- yoga interests -->
+                                    <h4 align="center">-: Yoga Interests :-</h4><br>
+                                    <h4>What are your personal yoga interests? </h4><br>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="Aasanas" name="Aasanas" value="Aasanas">
+                                    <label for="Aasanas">Aasanas (Postures)</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="Pranayama" name="Pranayama" value="Pranayama">
+                                    <label for="Pranayama">Pranayama (Breath Work)
+                                    </label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="Meditation" name="Meditation" value="Meditation">
+                                    <label for="Meditation">Meditation</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="Yoga Philosophy" name="Yoga Philosophy" value="Yoga Philosophy">
+                                    <label for="Yoga Philosophy">Yoga Philosophy</label><br> <br>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="Energy Systems" name="Energy Systems" value="Energy Systems">
+                                    <label for="">Energy Systems (Chakras)</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="Anatomy" name="Anatomy" value="Anatomy">
+                                    <label for="">Anatomy</label>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="other" name="other" value="other">
+                                    <label for="other">Other</label><br><br><br>
+                                </div>
+                                <!-- state of health -->
+                                <div class="health-state">
+                                    <h3 align="center">-: States of Health :-</h3><br>
+                                    <table border="1" align="center" cellpadding="10px" width="70%">
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Muscle Strain/Sprain">
+                                                <label for="health-state">Muscle Strain/Sprain</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="High Blood Preasure">
+                                                <label for="health-state">High Blood Preasure</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Low Blood Preasure">
+                                                <label for="health-state">Low Blood Preasure</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Back Pain">
+                                                <label for="health-state">Back Pain</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Headache">
+                                                <label for="health-state">Headache</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Broken/dislocated bone(s)">
+                                                <label for="health-state">Broken/dislocated bone(s)</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Lung Condition">
+                                                <label for="health-state">Lung Condition</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Cardiac Condition">
+                                                <label for="health-state">Cardiac (heart) Condition</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Diabetes">
+                                                <label for="health-state">Diabetes</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Insomnia">
+                                                <label for="health-state">Insomnia</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Anxiety/Depression">
+                                                <label for="health-state">Anxiety/Depression</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Mental Illness">
+                                                <label for="health-state">Mental Illness</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Slipped Disc(s)">
+                                                <label for="health-state">Slipped Disc(s)</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Joint Aches">
+                                                <label for="health-state">Joint Aches</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Arthritis/Bursitis">
+                                                <label for="health-state">Arthritis/Bursitis</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Neck Pain">
+                                                <label for="health-state">Neck Pain</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Chest Pain">
+                                                <label for="health-state">Chest Pain</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Shoulders Pain">
+                                                <label for="health-state">Shoulders Pain</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Hormonal Condition">
+                                                <label for="health-state">Hormonal Condition</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="PCOS/PCOD">
+                                                <label for="health-state">PCOS/PCOD</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="PMS">
+                                                <label for="health-state">PMS</label>
+                                                &nbsp;&nbsp;
+                                                <input type="checkbox" name="health-state" value="Monopause">
+                                                <label for="health-state">Monopause</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Stroke">
+                                                <label for="health-state">Stroke</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Asthama">
+                                                <label for="health-state">Asthama</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Skin Condition">
+                                                <label for="health-state">Skin Condition</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Cancer">
+                                                <label for="health-state">Cancer</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Neurological Condition">
+                                                <label for="health-state">Neurological Condition</label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" name="health-state" value="Surgery/Operations">
+                                                <label for="health-state">Surgery/Operations</label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <label for="health"><strong>Give a brief history of your health condition(s) :</strong></label> <br>
+                                    <textarea name="health" id="health"></textarea><br><br><br>
+                                    <label for="health"><strong>Please list if you have any other health condition(s) we should be aware of :</strong></label> <br>
+                                    <textarea name="health" id="health"></textarea><br><br><br>
+                                    <h4>Are you Pregnant?</h4><br>
+                                    &nbsp;&nbsp;
+                                    <input type="radio" id="yes-practice" name="practice" value="yes">
+                                    <label for="yes">Yes</label>
+                                    &nbsp;&nbsp;
+                                    <input type="radio" id="no-practice" name="practice" value="no">
+                                    <label for="no">No</label><br><br>
+                                    <label for="health"><strong>If yes, then how many months? and any complications? :</strong></label> <br>
+                                    <textarea name="health" id="health"></textarea><br><br><br>
+                                </div>    
+                                <!-- submit button -->
+                                <button type="submit" class="btn formsubmit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+    <footer>
+        <div class="footer-container items-center">
+            <p class="logo">CozyCore</p>
+            <p class="copyright">&copy; 2025 , CozyCore Yoga</p>
+            <div class="scroll-top">
+                <span>
+                    <a href="./index.html">
+                        <img src="./images/icons/up-icon.png" alt="icon">
+                    </a>
+                </span>
+            </div>
+        </div>
+    </footer> 
+    
+  <script>
+    const form = document.getElementById("healthForm");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      // Convert checkbox groups to arrays
+      data.yogaStyles = formData.getAll("yogaStyles");
+      data.goals = formData.getAll("goals");
+      data.interests = formData.getAll("interests");
+
+      const response = await fetch("/submit-healthform", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        alert("Form submitted successfully!");
+        form.reset();
+      } else {
+        alert("Error submitting form.");
+      }
+    });
+  </script>
+</body>
+</html>
