@@ -2,10 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const path = require("path");
-require("dotenv").config(); // To load environment variables securely
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 
 // Middleware
 app.use(cors());
@@ -13,18 +12,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public"))); // Serve frontend files
 
-// Serve Health Form HTML
 app.get("/Healthform_html.html", (req, res) => {
   res.sendFile(path.join(__dirname, "Healthform_html.html"));
 });
 
-// Serve static CSS file
+
+// Serve static files manually (e.g., style.css)
 app.get("/css/index-style.css", (req, res) => {
   res.sendFile(path.join(__dirname, "index-style.css"));
 });
 
+ 
 // MongoDB Atlas connection
-const mongoURI = process.env.MONGO_URI; // Securely use environment variables
+const mongoURI = "mongodb+srv://mahekvesuwala200704:xQblvhup0wKZN9Ad@cluster0.ntyc54m.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -42,6 +42,7 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model("User", userSchema);
+
 
 // ===================== ROUTES ===================== //
 
@@ -119,6 +120,12 @@ app.post("/submit-healthform", async (req, res) => {
     res.status(500).json({ success: false, message: "Error saving data." });
   }
 });
+
+app.listen(PORT, () => {
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
+});
+
+
 
 // Catch-all route (optional: serve index.html or 404)
 app.get("/", (req, res) => {
